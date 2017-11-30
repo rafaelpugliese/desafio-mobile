@@ -2,8 +2,6 @@ package com.mobile.desafio.repositoriosgithub.provedor.json;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
 public class PullJson {
 
     private String title;

@@ -1,6 +1,5 @@
 package com.mobile.desafio.repositoriosgithub.activity;
 
-import android.app.Activity;
 import android.app.Instrumentation;
 import android.support.test.annotation.UiThreadTest;
 import android.test.ActivityInstrumentationTestCase2;
@@ -14,7 +13,6 @@ public class PullActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 
     private MainActivity mainActivity;
     private Instrumentation inst;
-    private ListView listView;
 
     public PullActivityTest() {
         super(MainActivity.class);
@@ -40,8 +38,8 @@ public class PullActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 
     private String clicarNoPrimeiroItemDaLista() {
         this.inst.waitForIdleSync();
-        this.listView = this.mainActivity.findViewById(R.id.Repositorios_lista);
-        View item = this.listView.getChildAt(0);
+        ListView listView = this.mainActivity.findViewById(R.id.Repositorios_lista);
+        View item = listView.getChildAt(0);
         TextView nome = item.findViewById(R.id.ItemRepositorio_Nome);
         item.callOnClick();
         return nome.getText().toString();

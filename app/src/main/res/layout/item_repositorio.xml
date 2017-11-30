@@ -5,8 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="15dp"
-    android:weightSum="10"
+    android:paddingBottom="15dp"
+    android:paddingStart="15dp"
+    android:paddingEnd="5dp"
+    android:paddingTop="15dp"
+    android:weightSum="11"
     tools:context="com.mobile.desafio.repositoriosgithub.activity.MainActivity">
 
     <LinearLayout
@@ -43,7 +46,7 @@
                 android:id="@+id/ItemRepositorio_Forks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_code_fork_symbol"
+                android:drawableStart="@drawable/ic_code_fork_symbol"
                 android:drawablePadding="5dp"
                 android:gravity="center_vertical"
                 android:text="650"
@@ -55,10 +58,10 @@
                 android:id="@+id/ItemRepositorio_Stars"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_favourites_filled_star_symbol"
+                android:drawableStart="@drawable/ic_favourites_filled_star_symbol"
                 android:drawablePadding="5dp"
                 android:gravity="center_vertical"
-                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
                 android:text="98"
                 android:textColor="@color/colorLaranja"
                 android:textSize="18sp"
@@ -101,5 +104,10 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/ic_right_arrow" />
 
 </LinearLayout>

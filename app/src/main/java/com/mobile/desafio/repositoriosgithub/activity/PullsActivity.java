@@ -10,10 +10,11 @@ import com.mobile.desafio.repositoriosgithub.R;
 import com.mobile.desafio.repositoriosgithub.adapter.PullAdapter;
 import com.mobile.desafio.repositoriosgithub.asynctask.ListarPullsAsyncTask;
 import com.mobile.desafio.repositoriosgithub.dominio.Pagina;
+import com.mobile.desafio.repositoriosgithub.dominio.Pull;
 import com.mobile.desafio.repositoriosgithub.dominio.Repositorio;
 import com.mobile.desafio.repositoriosgithub.sandbox.SandBox;
 
-public class PullsActivity extends GitHubActivity<Pagina> {
+public class PullsActivity extends GitHubActivity<Pagina<Pull>> {
 
     public final static String EXTRA_REPOSITORIO = "repositorio";
 
@@ -42,7 +43,7 @@ public class PullsActivity extends GitHubActivity<Pagina> {
     }
 
     @Override
-    public void atualizar(Pagina pagina) {
+    public void atualizar(Pagina<Pull> pagina) {
 
         if (pullAdapter == null) {
             if (pagina.getItens().isEmpty()) {
@@ -56,6 +57,6 @@ public class PullsActivity extends GitHubActivity<Pagina> {
             pullAdapter.setUltimaPagina(pagina);
             pullsList.smoothScrollToPosition(pullAdapter.getItemCount() - pagina.getItens().size() + 1);
         }
-
     }
+
 }

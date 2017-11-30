@@ -24,11 +24,11 @@ import java.util.List;
 public class PullAdapter extends RecyclerView.Adapter<PullAdapter.ViewHolderPull> {
 
     private ImageLoader imageLoader;
-    private Pagina ultimaPagina;
+    private Pagina<Pull> ultimaPagina;
     private GitHubActivity activity;
     private List<Pull> pulls;
 
-    public PullAdapter(@NonNull GitHubActivity context, Pagina pagina) {
+    public PullAdapter(@NonNull GitHubActivity context, Pagina<Pull> pagina) {
         this.imageLoader = new ImageLoader(context);
         this.ultimaPagina = pagina;
         this.activity = context;
@@ -46,7 +46,7 @@ public class PullAdapter extends RecyclerView.Adapter<PullAdapter.ViewHolderPull
         return this.pulls.size();
     }
 
-    public void setUltimaPagina(Pagina ultimaPagina) {
+    public void setUltimaPagina(Pagina<Pull> ultimaPagina) {
         this.ultimaPagina = ultimaPagina;
     }
 

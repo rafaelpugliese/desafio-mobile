@@ -41,7 +41,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
     implementation group: 'cz.msebera.android', name: 'httpclient', version: '4.4.1.1'
-    implementation 'com.google.code.gson:gson:2.7'
+    implementation 'com.google.code.gson:gson:2.8.0'
     implementation 'com.android.support:recyclerview-v7:26.1.0'
 
     implementation 'android.arch.persistence.room:runtime:1.0.0'

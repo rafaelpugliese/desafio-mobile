@@ -23,7 +23,7 @@ public class RepositorioServicePersistence implements RepositorioService {
         this.usuarioServicePersistence = new UsuarioServicePersistence(context);
     }
 
-    public Pagina listarRepositorios(Integer numero) throws IOException, URISyntaxException {
+    public Pagina<Repositorio> listarRepositorios(Integer numero) throws IOException, URISyntaxException {
         List<Repositorio> repositorios = db.repositorioDao().getAll();
         for (Repositorio repositorio : repositorios) {
             repositorio.setDono(this.usuarioServicePersistence.findById(repositorio.getDonoId()));

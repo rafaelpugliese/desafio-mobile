@@ -4,10 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.github.siyamed.shapeimageview.CircularImageView;
 
@@ -31,30 +27,24 @@ public class ImageLoader {
 
     private MemoryCache memoryCache = MemoryCache.getInstance();
     private FileCache fileCache;
-    private Map<CircularImageView, String> imageViews2 = Collections.synchronizedMap(new WeakHashMap<CircularImageView, String>());
+    private Map<CircularImageView, String> imageViews = Collections.synchronizedMap(new WeakHashMap<CircularImageView, String>());
     private ExecutorService executorService;
-    private int loadingImage;
-    private Context contexto;
 
-    //CONSTRUTOR DA CLASSE
     public ImageLoader(Context contexto) {
         fileCache = new FileCache(contexto);
         executorService = Executors.newFixedThreadPool(5);
-        this.contexto = contexto;
     }
 
     public void loadImage(String imageURL, CircularImageView circularImageView, int loadingImage) {
 
-        this.loadingImage = loadingImage;
-
-        imageViews2.put(circularImageView, imageURL);
+        imageViews.put(circularImageView, imageURL);
 
         Bitmap bitmap = memoryCache.get(imageURL);
         if (bitmap != null) {
             circularImageView.setImageBitmap(bitmap);
         } else {
             queuePhoto(imageURL, circularImageView, loadingImage);
-            circularImageView.setImageResource(this.loadingImage);
+            circularImageView.setImageResource(loadingImage);
         }
     }
 
@@ -176,7 +166,7 @@ public class ImageLoader {
         }
 
         private boolean imageViewReused(PhotoToLoad photoToLoad) {
-            String tag = imageViews2.get(photoToLoad.circularImageView);
+            String tag = imageViews.get(photoToLoad.circularImageView);
             return tag == null || !tag.equals(photoToLoad.url);
         }
 

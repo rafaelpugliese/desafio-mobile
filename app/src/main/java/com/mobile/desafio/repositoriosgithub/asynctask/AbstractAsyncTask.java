@@ -56,7 +56,7 @@ public abstract class AbstractAsyncTask<Params, Progress, Result> extends AsyncT
         this.progressBar.setVisibility(View.GONE);
 
         if (asyncTaskResult.hasException() && asyncTaskResult.existeMensagem()) {
-            Toast.makeText(activity, asyncTaskResult.getMensagem(), Toast.LENGTH_LONG);
+            Toast.makeText(activity, asyncTaskResult.getMensagem(), Toast.LENGTH_LONG).show();
         } else {
 
             if (conectado) {

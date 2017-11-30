@@ -6,7 +6,6 @@ import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
 import com.mobile.desafio.repositoriosgithub.dominio.Pull;
-import com.mobile.desafio.repositoriosgithub.dominio.Repositorio;
 
 import java.util.List;
 

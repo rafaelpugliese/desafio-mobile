@@ -1,7 +1,5 @@
 package com.mobile.desafio.repositoriosgithub.dominio;
 
-import android.graphics.Color;
-
 import com.mobile.desafio.repositoriosgithub.R;
 
 public enum Status {

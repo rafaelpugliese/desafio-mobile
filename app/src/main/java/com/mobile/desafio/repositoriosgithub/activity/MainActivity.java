@@ -14,8 +14,9 @@ import com.mobile.desafio.repositoriosgithub.R;
 import com.mobile.desafio.repositoriosgithub.adapter.RepositorioAdapter;
 import com.mobile.desafio.repositoriosgithub.asynctask.ListarRepositoriosAsyncTask;
 import com.mobile.desafio.repositoriosgithub.dominio.Pagina;
+import com.mobile.desafio.repositoriosgithub.dominio.Repositorio;
 
-public class MainActivity extends GitHubActivity<Pagina> implements ActivityCompat.OnRequestPermissionsResultCallback {
+public class MainActivity extends GitHubActivity<Pagina<Repositorio>> implements ActivityCompat.OnRequestPermissionsResultCallback {
 
     private RepositorioAdapter repositorioAdapter;
     private int PERMISSAO_WRITE = 10;
@@ -48,7 +49,7 @@ public class MainActivity extends GitHubActivity<Pagina> implements ActivityComp
     }
 
     @Override
-    public void atualizar(Pagina pagina) {
+    public void atualizar(Pagina<Repositorio> pagina) {
         if (repositorioAdapter == null) {
             repositorioAdapter = new RepositorioAdapter(this, pagina);
             repositorioList.setAdapter(repositorioAdapter);

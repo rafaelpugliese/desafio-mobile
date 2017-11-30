@@ -19,7 +19,7 @@ public class ListarPullsAsyncTask extends AbstractAsyncTask<Integer, Void, Pagin
     }
 
     @Override
-    protected Pagina executeInBackground(Integer[] params) throws Exception {
+    protected Pagina<Pull> executeInBackground(Integer[] params) throws Exception {
         SandBox sandBox = new SandBox(getActivity());
         Repositorio repositorio = sandBox.getRepositorio();
         return this.pullService.listarPulls(repositorio, params[0]);
@@ -33,7 +33,7 @@ public class ListarPullsAsyncTask extends AbstractAsyncTask<Integer, Void, Pagin
     }
 
     @Override
-    protected void onPostExecuteOffline(Pagina pagina) {
+    protected void onPostExecuteOffline(Pagina<Pull> pagina) {
         getActivity().atualizar(pagina);
 
     }

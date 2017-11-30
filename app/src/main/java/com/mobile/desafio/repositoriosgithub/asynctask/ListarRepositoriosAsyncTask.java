@@ -18,7 +18,7 @@ public class ListarRepositoriosAsyncTask extends AbstractAsyncTask<Integer, Void
     }
 
     @Override
-    protected Pagina executeInBackground(Integer[] parms) throws Exception {
+    protected Pagina<Repositorio> executeInBackground(Integer[] parms) throws Exception {
         return this.repositorioService.listarRepositorios(parms[0]);
     }
 
@@ -30,7 +30,7 @@ public class ListarRepositoriosAsyncTask extends AbstractAsyncTask<Integer, Void
     }
 
     @Override
-    protected void onPostExecuteOffline(Pagina pagina) {
+    protected void onPostExecuteOffline(Pagina<Repositorio> pagina) {
         getActivity().atualizar(pagina);
     }
 

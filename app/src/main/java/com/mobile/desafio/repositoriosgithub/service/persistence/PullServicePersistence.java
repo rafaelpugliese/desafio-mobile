@@ -18,15 +18,13 @@ public class PullServicePersistence implements PullService {
 
     private AppDatabase db;
     private UsuarioServicePersistence usuarioServicePersistence;
-    private RepositorioServicePersistence repositorioServicePersistence;
 
     public PullServicePersistence(Context context) {
         this.db = AppDatabase.getAppDatabase(context);
         this.usuarioServicePersistence = new UsuarioServicePersistence(context);
-        this.repositorioServicePersistence = new RepositorioServicePersistence(context);
     }
 
-    public Pagina listarPulls(Repositorio repositorio, Integer page) throws IOException, URISyntaxException {
+    public Pagina<Pull> listarPulls(Repositorio repositorio, Integer page) throws IOException, URISyntaxException {
         List<Pull> pulls = db.pullDao().findByDonoAndRepositorio(repositorio.getId());
         for (Pull pull : pulls) {
             pull.setDono(this.usuarioServicePersistence.findById(pull.getDonoId()));

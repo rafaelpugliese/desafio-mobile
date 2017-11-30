@@ -1,11 +1,8 @@
 package com.mobile.desafio.repositoriosgithub.asynctask.persistence;
 
 import com.mobile.desafio.repositoriosgithub.activity.GitHubActivity;
-import com.mobile.desafio.repositoriosgithub.dominio.Pagina;
 import com.mobile.desafio.repositoriosgithub.dominio.Pull;
 import com.mobile.desafio.repositoriosgithub.service.persistence.PullServicePersistence;
-
-import java.util.List;
 
 public class SalvarPullsPersistenceAsyncTask extends AbstractPersistenceAsyncTask<Pull, Void, Void> {
 

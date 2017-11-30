@@ -1,6 +1,5 @@
 package com.mobile.desafio.repositoriosgithub.adapter;
 
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -25,10 +24,10 @@ public class RepositorioAdapter extends RecyclerView.Adapter<RepositorioAdapter.
 
     private ImageLoader imageLoader;
     private GitHubActivity activity;
-    private Pagina ultimaPagina;
+    private Pagina<Repositorio> ultimaPagina;
     private List<Repositorio> repositorios;
 
-    public RepositorioAdapter(@NonNull Context context, Pagina pagina) {
+    public RepositorioAdapter(@NonNull Context context, Pagina<Repositorio> pagina) {
         this.imageLoader = new ImageLoader(context);
         this.activity = (GitHubActivity) context;
         this.ultimaPagina = pagina;
@@ -53,8 +52,8 @@ public class RepositorioAdapter extends RecyclerView.Adapter<RepositorioAdapter.
         final Repositorio repositorio = this.repositorios.get(position);
         holder.nome.setText(repositorio.getNome());
         holder.descricao.setText(repositorio.getDescricao());
-        holder.forks.setText(repositorio.getForks().toString());
-        holder.stars.setText(repositorio.getStars().toString());
+        holder.forks.setText(String.valueOf(repositorio.getForks()));
+        holder.stars.setText(String.valueOf(repositorio.getStars()));
         holder.nomeUsuario.setText(repositorio.getDono().getNome());
         holder.nomeUsuarioCompleto.setText(repositorio.getDono().getNomeCompleto());
         this.imageLoader.loadImage(repositorio.getDono().getUrlImagem(), holder.urlUsuario, R.drawable.user);
@@ -64,7 +63,7 @@ public class RepositorioAdapter extends RecyclerView.Adapter<RepositorioAdapter.
             public void onItemClick(Repositorio item) {
                 Intent intent = new Intent(activity, PullsActivity.class);
                 intent.putExtra(PullsActivity.EXTRA_REPOSITORIO, repositorio);
-                activity.startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(activity).toBundle());
+                activity.startActivity(intent);
             }
         });
 
@@ -80,11 +79,11 @@ public class RepositorioAdapter extends RecyclerView.Adapter<RepositorioAdapter.
         notifyDataSetChanged();
     }
 
-    public void setUltimaPagina(Pagina ultimaPagina) {
+    public void setUltimaPagina(Pagina<Repositorio> ultimaPagina) {
         this.ultimaPagina = ultimaPagina;
     }
 
-    public class ViewHolderRepositorio extends RecyclerView.ViewHolder {
+    class ViewHolderRepositorio extends RecyclerView.ViewHolder {
 
         final TextView nome;
         final TextView descricao;
@@ -94,7 +93,7 @@ public class RepositorioAdapter extends RecyclerView.Adapter<RepositorioAdapter.
         final TextView nomeUsuarioCompleto;
         final CircularImageView urlUsuario;
 
-        public ViewHolderRepositorio(View view) {
+        ViewHolderRepositorio(View view) {
             super(view);
 
             nome = view.findViewById(R.id.ItemRepositorio_Nome);
@@ -106,7 +105,7 @@ public class RepositorioAdapter extends RecyclerView.Adapter<RepositorioAdapter.
             urlUsuario = view.findViewById(R.id.ItemRepositorio_ImagemUsuario);
         }
 
-        public void bind(final Repositorio repositorio, final OnItemClickListener<Repositorio> listener) {
+        void bind(final Repositorio repositorio, final OnItemClickListener<Repositorio> listener) {
             itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override

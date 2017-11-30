@@ -35,7 +35,7 @@
             android:id="@+id/ItemPull_ImagemUsuario"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:src="@drawable/user"
             app:siBorderColor="@android:color/white"
             app:siBorderWidth="2dp" />
@@ -44,10 +44,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_toLeftOf="@+id/ItemPull_Status"
-            android:layout_toRightOf="@+id/ItemPull_ImagemUsuario"
+            android:layout_toEndOf="@+id/ItemPull_ImagemUsuario"
+            android:layout_toStartOf="@+id/ItemPull_Status"
             android:orientation="vertical"
-            android:paddingLeft="15dp">
+            android:paddingStart="15dp">
 
             <TextView
                 android:id="@+id/ItemPull_NomeUsuario"
@@ -70,7 +70,7 @@
             android:id="@+id/ItemPull_Status"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:background="@drawable/border"

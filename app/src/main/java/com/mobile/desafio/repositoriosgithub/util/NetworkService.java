@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.widget.Toast;
 
 public class NetworkService extends BroadcastReceiver {
 
@@ -18,7 +17,5 @@ public class NetworkService extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        String texto = isConnected(context) ? "Conectado" : "Desconectado";
-        Toast.makeText(context, texto, Toast.LENGTH_SHORT).show();
     }
 }

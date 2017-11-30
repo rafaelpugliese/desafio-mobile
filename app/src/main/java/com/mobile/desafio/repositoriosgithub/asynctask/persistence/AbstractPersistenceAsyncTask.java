@@ -1,6 +1,5 @@
 package com.mobile.desafio.repositoriosgithub.asynctask.persistence;
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
 
