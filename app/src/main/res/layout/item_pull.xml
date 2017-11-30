@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:context="com.mobile.desafio.repositoriosgithub.activity.PullsActivity">
+
+    <TextView
+        android:id="@+id/ItemPull_Titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Título Pull"
+        android:textColor="@color/colorTitulo"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/ItemPull_Descricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:minLines="2"
+        android:text="Descrição do Pull lorem ipsum dolor sit amet lorem ipsum dolor" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:id="@+id/ItemPull_ImagemUsuario"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/user"
+            app:siBorderColor="@android:color/white"
+            app:siBorderWidth="2dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@+id/ItemPull_Status"
+            android:layout_toRightOf="@+id/ItemPull_ImagemUsuario"
+            android:orientation="vertical"
+            android:paddingLeft="15dp">
+
+            <TextView
+                android:id="@+id/ItemPull_NomeUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username"
+                android:textColor="@color/colorUsername"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/ItemPull_NomeUsuarioCompleto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:minLines="1"
+                android:text="Nome Sobrenome" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ItemPull_Status"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Merged"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

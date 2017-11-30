@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GitHub Java</string>
+    <string name="pulls_vazios">Nenhum Pull Request foi enviado</string>
+    <string name="mensagem_permissao_escrita_negada">Não será possível visualizar as imagens dos usuários</string>
+</resources>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="15dp"
+    android:weightSum="10"
+    tools:context="com.mobile.desafio.repositoriosgithub.activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ItemRepositorio_Nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nome Repositório"
+            android:textColor="@color/colorTitulo"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ItemRepositorio_Descricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:minLines="2"
+            android:text="Descrição do Repositório lorem ipsum dolor sit amet lorem ipsum dolor" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/ItemRepositorio_Forks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_code_fork_symbol"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:text="650"
+                android:textColor="@color/colorLaranja"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ItemRepositorio_Stars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_favourites_filled_star_symbol"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="98"
+                android:textColor="@color/colorLaranja"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:id="@+id/ItemRepositorio_ImagemUsuario"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/user"
+            app:siBorderColor="@android:color/white"
+            app:siBorderWidth="2dp" />
+
+        <TextView
+            android:id="@+id/ItemRepositorio_NomeUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="username"
+            android:textColor="@color/colorUsername"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/ItemRepositorio_NomeUsuarioCompleto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:minLines="1"
+            android:text="Nome Sobrenome" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
