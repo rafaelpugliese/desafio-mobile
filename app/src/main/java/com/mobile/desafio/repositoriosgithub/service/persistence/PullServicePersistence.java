@@ -24,7 +24,7 @@ public class PullServicePersistence implements PullService {
         this.usuarioServicePersistence = new UsuarioServicePersistence(context);
     }
 
-    public Pagina<Pull> listarPulls(Repositorio repositorio, Integer page) throws IOException, URISyntaxException {
+    public Pagina<Pull> listarPulls(Repositorio repositorio, Integer numeroPagina) throws IOException, URISyntaxException {
         List<Pull> pulls = db.pullDao().findByDonoAndRepositorio(repositorio.getId());
         for (Pull pull : pulls) {
             pull.setDono(this.usuarioServicePersistence.findById(pull.getDonoId()));
