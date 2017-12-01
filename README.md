@@ -1,57 +1,42 @@
 # Desafio de programação mobile (IOS/Android)
 
-A idéia deste desafio é nos permitir avaliar melhor as habilidades de candidatos à vagas de programador, de vários níveis.
+### Informações do autor
+
+Nome: Rafael Fernandes Pugliese de Morais
+
+Email: rafaelfpm@gmail.com
+
+Linkedin: www.linkedin.com/in/rafael-pugliese
+
+### Requisitos cumpridos
+
+- Utilização de um arquivo .gitignore;
+- Implementação de testes unitários;
+- Implementação de testes de usuarios;
+- Utilização de padrões de projetos;
+- Realização de persistência de dados locais;
+- Utilização de Cache para imagens;
+
+### Configuração e execução do projeto
+
+Projeto foi desenvolvido na plataforma Android e foi configurado a partir da pasta raiz do repositório. Para execução do projeto é utilizada a ferramenta Android Studio e não é necessário nenhum procedimento a mais do que o padrão para execução de aplicações android na IDE.
+
+### Observações de funcionalidades dos projetos:
+
+- Aos exibir os últimos itens de cada lista (Repositórios e Pulls), a aplicação carrega mais itens (caso exista) e acrescenta os itens ao final de cada respectiva lista;
+- A medida que um dado (dados dos repositórios, dos pulls requests e usuários) é carregado online, eles são armazenados (em thread separada) e utilizados quando o dispositivo estiver sem internet. Os dados quando listados offline, são listados com a mesma ordem de quando listados online;
+- Além dos dados dos protótipos foi acrescentado o status de cada pull request (open, closed e merged);
+- Suportar mudanças de orientação das telas sem perder estado;
 
 
-## Instruções de entrega do desafio
+### Observações técnicas do projeto:
 
-1. Faça um clone deste repositório.
-1. Em seguida, implemente o projeto tal qual descrito abaixo, em seu clone local.
-1. Por fim, envie um pull request com seu email na descriçao.
-
-## Descrição do projeto
-
-Você deve criar um aplicativo que irá listar os repositórios públicos mais populares relacionados à Java no GitHub, usando a [API do GitHub](https://developer.github.com/v3/) para buscar os dados necessários.
-
-O aplicativo deve exibir inicialmente uma lista paginada dos repositórios, ordenados por popularidade decrescente (exemplo de chamada da API: `https://api.github.com/search/repositories?q=language:Java&sort=stars&page=1`).
-
-Cada repositório deve exibir nome, descrição , nome / foto do autor, número de stars, número de forks.
-
-Ao tocar em um item, deve levar a lista de Pull Requests do repositório. Cada item da lista deve exibir nome / foto do autor do PR, título do PR, data do PR e body do PR.
-
-Ao tocar em um item, deve abrir no browser a página do Pull Request em questão.
-
-Você pode se basear neste mockup para criar as telas:
-
-![mockup](https://raw.githubusercontent.com/myfreecomm/desafio-mobile-android/master/mockup-android.png)
-
-Sua aplicação deve:
-
-- usar um arquivo .gitignore no seu repositório
-
-Você ganha mais pontos se:
-
-- possuir boa cobertura de testes unitários no projeto.
-- usar padrões de projeto
-- persistir os dados localmente
-- fazer cache de imagens
-- criar testes funcionais
-
-Será um grande diferencial:
-
-- contribuir em projetos open source
-- conhecimento nos princípios SOLID
-- conceitos de arquitetura como (DDD, clean architecture)
-- ter conhecimento em desenvolvimento web
-
-## Avaliação
-
-Seu projeto será avaliado de acordo com os seguintes critérios.
-
-1. Sua aplicação preenche os requerimentos básicos?
-1. Você documentou a maneira de configurar o ambiente e rodar sua aplicação?
-1. Você seguiu as instruções de envio do desafio?
-
-## Referência
-
-Este desafio foi baseado neste outro desafio: https://bitbucket.org/suporte_concrete/desafio-android
+- É utilizada uma biblioteca (room) para criação do banco de dados (SQlite). A biblioteca room também é utilizada para realizar as operações com o banco de dados e mapeamento necessário.
+- Para exibição dos itens das listas, foi utilizada a biblioteca recyclerview, esta biblioteca da suporte para exibir varios layouts de itens em uma mesma lista, porém esse recurso não foi necessário por conta do contexto da aplicação. 
+- Para visualizar informações do banco de dados, é utilizada a biblioteca amitshekhar. Quando a aplicação está sendo executada, basta acessar pelo browser de um computador, que esteja na mesma rede, o endereço http://ip_dispositivo:8080 para verificar as informações.
+- São utilizadas as bibliotecas mockito e junit para implementação dos testes (testes de usuário e teste unitário) da aplicação.
+- Para a conversão de json/objetos foi utilizada a biblioteva GSON;
+- Aplicação possuie sistema de build Gradle;
+- Foram feitas pequenas customizações no estilo (Theme.Material) da aplicação. Foram feitos ajustes de cores de alguns componentes e modo de transições (utilização de slides) entre telas;
+- Através da utilização de interfaces, as operações solicitadas são direcionadas (nas classes de *AsyncTask) para métodos específicos (nas camadas abaixos) de acordo com o status da conectividade (online/offline). Quando online, são feitas requisições na API do GitHub, quando offline, são realizadas consultas no banco de dados local do dispositivo;
+- No projeto foi utilizada uma arquitetura em camadas;
