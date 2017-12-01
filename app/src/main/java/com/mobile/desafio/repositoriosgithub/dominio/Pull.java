@@ -36,10 +36,10 @@ public class Pull implements Serializable, Comparable<Pull> {
     private String html;
 
     @ColumnInfo
-    private boolean open;
+    private Boolean open;
 
     @ColumnInfo
-    private boolean merged;
+    private Boolean merged;
 
     @ColumnInfo
     private String dataCriacao;
@@ -82,19 +82,19 @@ public class Pull implements Serializable, Comparable<Pull> {
         this.titulo = titulo;
     }
 
-    public void setMerged(boolean merged) {
+    public void setMerged(Boolean merged) {
         this.merged = merged;
     }
 
-    public void setOpen(boolean open) {
+    public void setOpen(Boolean open) {
         this.open = open;
     }
 
-    public boolean isMerged() {
+    public Boolean isMerged() {
         return merged;
     }
 
-    public boolean isOpen() {
+    public Boolean isOpen() {
         return open;
     }
 

@@ -67,7 +67,7 @@ public class RepositorioAdapter extends RecyclerView.Adapter<RepositorioAdapter.
             }
         });
 
-        if (position == (this.getItemCount() - 1) && ultimaPagina.existeProxima()) {
+        if (position == (this.getItemCount() - 3) && ultimaPagina.existeProxima()) {
             ListarRepositoriosAsyncTask listarRepositoriosAsyncTask = new ListarRepositoriosAsyncTask(activity);
             listarRepositoriosAsyncTask.execute(ultimaPagina.getProxima());
         }

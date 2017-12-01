@@ -27,8 +27,4 @@ public class UsuarioServicePersistence {
         return this.db.usuarioDao().findById(id);
     }
 
-
-    public Usuario findByNome(String nomeDono) {
-        return this.db.usuarioDao().findByNome(nomeDono);
-    }
 }

@@ -1,13 +1,15 @@
-package com.mobile.desafio.repositoriosgithub.activity;
+package com.mobile.desafio.repositoriosgithub.pulls;
 
 import android.app.Instrumentation;
 import android.support.test.annotation.UiThreadTest;
+import android.support.v7.widget.RecyclerView;
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.mobile.desafio.repositoriosgithub.R;
+import com.mobile.desafio.repositoriosgithub.activity.MainActivity;
+import com.mobile.desafio.repositoriosgithub.activity.PullsActivity;
 
 public class PullActivityTest extends ActivityInstrumentationTestCase2<MainActivity> {
 
@@ -26,9 +28,9 @@ public class PullActivityTest extends ActivityInstrumentationTestCase2<MainActiv
     }
 
     @UiThreadTest
-    public void testaTitulo() {
+    public void testTitulo() {
 
-        String nomeRepositorio = clicarNoPrimeiroItemDaLista();
+        String nomeRepositorio = clicarNoPrimeiroItemDaListaReoisitorio();
 
         Instrumentation.ActivityMonitor activityMonitor = inst.addMonitor(PullsActivity.class.getName(), null, false);
         PullsActivity activity = (PullsActivity) inst.waitForMonitor(activityMonitor);
@@ -36,10 +38,10 @@ public class PullActivityTest extends ActivityInstrumentationTestCase2<MainActiv
         assertEquals(nomeRepositorio, activity.getTitle().toString());
     }
 
-    private String clicarNoPrimeiroItemDaLista() {
+    private String clicarNoPrimeiroItemDaListaReoisitorio() {
         this.inst.waitForIdleSync();
-        ListView listView = this.mainActivity.findViewById(R.id.Repositorios_lista);
-        View item = listView.getChildAt(0);
+        RecyclerView recyclerView = this.mainActivity.findViewById(R.id.Repositorios_lista);
+        View item = recyclerView.getChildAt(0);
         TextView nome = item.findViewById(R.id.ItemRepositorio_Nome);
         item.callOnClick();
         return nome.getText().toString();

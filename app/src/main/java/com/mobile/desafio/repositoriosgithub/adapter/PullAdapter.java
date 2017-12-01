@@ -73,7 +73,7 @@ public class PullAdapter extends RecyclerView.Adapter<PullAdapter.ViewHolderPull
         background.setColor(activity.getResources().getColor(status.getCor()));
         holder.status.setText(status.getNome());
 
-        if (position == (getItemCount() - 1) && ultimaPagina.existeProxima()) {
+        if (position == (getItemCount() - 3) && ultimaPagina.existeProxima()) {
             ListarPullsAsyncTask listarPullsAsyncTask = new ListarPullsAsyncTask(activity);
             listarPullsAsyncTask.execute(ultimaPagina.getProxima());
         }
