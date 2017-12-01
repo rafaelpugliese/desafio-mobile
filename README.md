@@ -1,6 +1,6 @@
 # Desafio de programação mobile (IOS/Android)
 
-### Informações do autor
+## Informações do autor
 
 Nome: Rafael Fernandes Pugliese de Morais
 
@@ -8,7 +8,7 @@ Email: rafaelfpm@gmail.com
 
 Linkedin: www.linkedin.com/in/rafael-pugliese
 
-### Requisitos cumpridos
+## Requisitos cumpridos
 
 - Utilização de um arquivo .gitignore;
 - Implementação de testes unitários;
@@ -17,11 +17,11 @@ Linkedin: www.linkedin.com/in/rafael-pugliese
 - Realização de persistência de dados locais;
 - Utilização de Cache para imagens;
 
-### Configuração e execução do projeto
+## Configuração e execução do projeto
 
 Projeto foi desenvolvido na plataforma Android e foi configurado a partir da pasta raiz do repositório. Para execução do projeto é utilizada a ferramenta Android Studio e não é necessário nenhum procedimento a mais do que o padrão para execução de aplicações android na IDE.
 
-### Observações de funcionalidades dos projetos:
+## Observações de funcionalidades dos projetos:
 
 - Aos exibir os últimos itens de cada lista (Repositórios e Pulls), a aplicação carrega mais itens (caso exista) e acrescenta os itens ao final de cada respectiva lista;
 - A medida que um dado (dados dos repositórios, dos pulls requests e usuários) é carregado online, eles são armazenados (em thread separada) e utilizados quando o dispositivo estiver sem internet. Os dados quando listados offline, são listados com a mesma ordem de quando listados online;
@@ -29,7 +29,7 @@ Projeto foi desenvolvido na plataforma Android e foi configurado a partir da pas
 - Suportar mudanças de orientação das telas sem perder estado;
 
 
-### Observações técnicas do projeto:
+## Observações técnicas do projeto:
 
 - É utilizada uma biblioteca (room) para criação do banco de dados (SQlite). A biblioteca room também é utilizada para realizar as operações com o banco de dados e mapeamento necessário.
 - Para exibição dos itens das listas, foi utilizada a biblioteca recyclerview, esta biblioteca da suporte para exibir varios layouts de itens em uma mesma lista, porém esse recurso não foi necessário por conta do contexto da aplicação. 
